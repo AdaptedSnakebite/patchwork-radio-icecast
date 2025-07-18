@@ -1,15 +1,24 @@
 <icecast>
+  <changeowner>
+    <user>nobody</user>
+    <group>nogroup</group>
+  </changeowner>
+
   <authentication>
     <source-password>${SOURCE_PASS}</source-password>
     <admin-user>admin</admin-user>
     <admin-password>${ADMIN_PASS}</admin-password>
   </authentication>
+
   <listen-socket>
     <port>8000</port>
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
-  <fileserve>1</fileserve>
+
   <paths>
     <webroot>/usr/share/icecast/web</webroot>
   </paths>
+
+  <fileserve>1</fileserve>
 </icecast>
+
