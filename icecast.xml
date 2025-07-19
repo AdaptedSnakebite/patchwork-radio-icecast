@@ -16,9 +16,9 @@
     <source-timeout>10</source-timeout>
   </limits>
   <authentication>
-    <source-password>${SOURCE_PASS}</source-password>
+    <source-password>hackme</source-password>
     <admin-user>admin</admin-user>
-    <admin-password>${ADMIN_PASS}</admin-password>
+    <admin-password>hackme</admin-password>
   </authentication>
   <listen-socket>
     <port>8000</port>
