@@ -25,7 +25,7 @@
   </authentication>
 
   <listen-socket>
-    <port>8080</port>
+    <port>8000</port>
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
 
@@ -41,7 +41,13 @@
     <chroot>0</chroot>
   </security>
 
-  <mime-types>/etc/mime.types</mime-types>
+  <mime-types>
+    <mime-type type="application/ogg" file-ext=".ogg"/>
+    <mime-type type="audio/mpeg" file-ext=".mp3"/>
+    <mime-type type="audio/aacp" file-ext=".aac"/>
+    <mime-type type="audio/x-mpegurl" file-ext=".m3u"/>
+    <mime-type type="application/xspf+xml" file-ext=".xspf"/>
+  </mime-types>
 
   <fileserve>1</fileserve>
 
