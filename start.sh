@@ -1,2 +1,4 @@
 #!/bin/sh
-exec icecast2 -c /etc/icecast.xml
+
+# Run Icecast in foreground with config file
+exec icecast -n -c /etc/icecast.xml
