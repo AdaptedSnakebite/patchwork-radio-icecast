@@ -1,6 +1,6 @@
 <icecast>
-  <location>Earth</location>
-  <admin>admin@example.com</admin>
+  <location>Internet</location>
+  <admin>patchwork@radio.fm</admin>
 
   <limits>
     <clients>100</clients>
@@ -19,7 +19,7 @@
     <admin-password>admin123</admin-password>
   </authentication>
 
-  <hostname>localhost</hostname>
+  <hostname>patchwork.up.railway.app</hostname>
 
   <listen-socket>
     <port>8080</port>
@@ -29,8 +29,8 @@
   <fileserve>1</fileserve>
 
   <paths>
-    <basedir>/usr/share/icecast</basedir>
-    <logdir>/var/log/icecast</logdir>
+    <basedir>/icecast</basedir>
+    <logdir>/icecast/logs</logdir>
     <webroot>/usr/share/icecast/web</webroot>
     <adminroot>/usr/share/icecast/admin</adminroot>
     <alias source="/" destination="/status.xsl"/>
@@ -43,10 +43,4 @@
     <loglevel>3</loglevel>
     <logsize>10000</logsize>
   </logging>
-
-  <security>
-    <changeowner>
-      <user>icecastuser</user>
-    </changeowner>
-  </security>
 </icecast>
