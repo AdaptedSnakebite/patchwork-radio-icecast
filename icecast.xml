@@ -3,6 +3,11 @@
   <admin>you@patchwork-radio.com</admin>
   <hostname>patchwork.up.railway.app</hostname>
 
+  <changeowner>
+    <user>nobody</user>
+    <group>nogroup</group>
+  </changeowner>
+
   <limits>
     <clients>100</clients>
     <sources>2</sources>
@@ -20,7 +25,7 @@
   </authentication>
 
   <listen-socket>
-    <port>8000</port> <!-- This will be replaced dynamically -->
+    <port>8080</port>
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
 
@@ -51,6 +56,7 @@
     <webroot>/usr/share/icecast/web</webroot>
     <adminroot>/usr/share/icecast/admin</adminroot>
     <logdir>/tmp</logdir>
+    <mime-types>/usr/share/icecast/mime.types</mime-types>
   </paths>
 
   <logging>
