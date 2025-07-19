@@ -1,6 +1,4 @@
 <icecast>
-  <changeowner>icecast</changeowner>
-
   <location>Internet</location>
   <admin>patchwork@radio.fm</admin>
 
@@ -32,7 +30,7 @@
 
   <paths>
     <basedir>/usr/share/icecast</basedir>
-    <logdir>/icecast/logs</logdir>
+    <logdir>/tmp</logdir>
     <webroot>/usr/share/icecast/web</webroot>
     <adminroot>/usr/share/icecast/admin</adminroot>
     <alias source="/" destination="/status.xsl"/>
