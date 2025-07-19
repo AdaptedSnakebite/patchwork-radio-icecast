@@ -14,13 +14,13 @@
   </limits>
 
   <authentication>
-    <source-password>hackme</source-password> <!-- change as needed -->
+    <source-password>hackme</source-password> <!-- Will be replaced -->
     <admin-user>admin</admin-user>
-    <admin-password>admin123</admin-password>
+    <admin-password>admin123</admin-password> <!-- Will be replaced -->
   </authentication>
 
   <listen-socket>
-    <port>8080</port> <!-- will be replaced by start.sh -->
+    <port>8080</port>
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
 
@@ -63,5 +63,4 @@
     <user>nobody</user>
     <group>nogroup</group>
   </changeowner>
-
 </icecast>
