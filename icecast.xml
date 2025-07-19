@@ -14,13 +14,13 @@
   </limits>
 
   <authentication>
-    <source-password>hackme</source-password> <!-- Will be replaced -->
+    <source-password>hackme</source-password>
     <admin-user>admin</admin-user>
-    <admin-password>admin123</admin-password> <!-- Will be replaced -->
+    <admin-password>admin123</admin-password>
   </authentication>
 
   <listen-socket>
-    <port>8080</port>
+    <port>8000</port> <!-- This will be replaced dynamically -->
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
 
@@ -58,9 +58,4 @@
     <errorlog>error.log</errorlog>
     <loglevel>3</loglevel>
   </logging>
-
-  <changeowner>
-    <user>nobody</user>
-    <group>nogroup</group>
-  </changeowner>
 </icecast>
