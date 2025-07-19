@@ -3,11 +3,6 @@
   <admin>you@patchwork-radio.com</admin>
   <hostname>patchwork.up.railway.app</hostname>
 
-  <changeowner>
-    <user>nobody</user>
-    <group>nogroup</group>
-  </changeowner>
-
   <limits>
     <clients>100</clients>
     <sources>2</sources>
@@ -19,13 +14,13 @@
   </limits>
 
   <authentication>
-    <source-password>hackme</source-password>
+    <source-password>hackme</source-password> <!-- change as needed -->
     <admin-user>admin</admin-user>
-    <admin-password>hackme</admin-password>
+    <admin-password>admin123</admin-password>
   </authentication>
 
   <listen-socket>
-    <port>8000</port>
+    <port>8080</port> <!-- will be replaced by start.sh -->
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
 
@@ -63,4 +58,10 @@
     <errorlog>error.log</errorlog>
     <loglevel>3</loglevel>
   </logging>
+
+  <changeowner>
+    <user>nobody</user>
+    <group>nogroup</group>
+  </changeowner>
+
 </icecast>
