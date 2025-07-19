@@ -30,7 +30,7 @@
 
   <paths>
     <basedir>/usr/share/icecast</basedir>
-    <logdir>/tmp</logdir>
+    <logdir>/var/log/icecast</logdir>
     <webroot>/usr/share/icecast/web</webroot>
     <adminroot>/usr/share/icecast/admin</adminroot>
     <alias source="/" destination="/status.xsl"/>
@@ -43,4 +43,11 @@
     <loglevel>3</loglevel>
     <logsize>10000</logsize>
   </logging>
+
+  <!-- Add this mount section to allow streaming sources to connect -->
+  <mount>
+    <mount-name>/stream</mount-name>
+    <username>source</username>
+    <password>hackme</password>
+  </mount>
 </icecast>
