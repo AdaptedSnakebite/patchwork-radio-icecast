@@ -1,5 +1,6 @@
 #!/bin/sh
-# Do the sed replacement as root, then switch to nobody user
-sed -i "s/<port>8000<\/port>/<port>$PORT<\/port>/" /etc/icecast/icecast.xml
-# Switch to nobody user and start icecast
-exec su-exec nobody icecast -c /etc/icecast/icecast.xml
+echo "Railway assigned PORT: $PORT"
+cp /etc/icecast/icecast.xml /tmp/icecast.xml
+sed -i "s/<port>8000<\/port>/<port>$PORT<\/port>/" /tmp/icecast.xml
+echo "Starting Icecast on port $PORT"
+exec icecast -c /tmp/icecast.xml
