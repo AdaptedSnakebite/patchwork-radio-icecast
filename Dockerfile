@@ -2,19 +2,16 @@ FROM alpine:latest
 
 RUN apk update && apk add --no-cache icecast
 
-# Create a non-root user
-RUN adduser -D -H -u 1000 icecastuser
-
-# Create required directories
+# Create directories with correct permissions
 RUN mkdir -p /var/log/icecast /usr/share/icecast/web /usr/share/icecast/admin
+RUN touch /var/log/icecast/access.log /var/log/icecast/error.log
+RUN chmod -R 777 /var/log/icecast
 
 COPY icecast.xml /etc/icecast.xml
-COPY start.sh /start.sh
 COPY mime.types /etc/mime.types
+COPY start.sh /start.sh
 
 RUN chmod +x /start.sh
-
-USER icecastuser
 
 EXPOSE 8080
 
