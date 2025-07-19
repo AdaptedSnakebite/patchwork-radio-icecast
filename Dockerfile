@@ -1,18 +1,25 @@
-FROM ubuntu:22.04
+FROM alpine:latest
 
-RUN apt-get update && apt-get install -y icecast2
+# Install Icecast
+RUN apk update && apk add --no-cache icecast
 
-# Create icecast user and group
-RUN groupadd -r icecast && useradd -r -g icecast icecast
+# Create icecast user and group (skip error if already exists)
+RUN addgroup -S icecast || true && adduser -S -G icecast icecast || true
 
-# Copy the icecast config
+# Copy the Icecast config file
 COPY icecast.xml /etc/icecast.xml
 
-# Create logs dir and give ownership to icecast user
-RUN mkdir -p /icecast/logs && chown -R icecast:icecast /icecast
+# Copy the start script
+COPY start.sh /start.sh
 
+# Make start script executable
+RUN chmod +x /start.sh
+
+# Switch to icecast user to avoid running as root
 USER icecast
 
+# Expose port 8080
 EXPOSE 8080
 
-CMD ["icecast2", "-c", "/etc/icecast.xml"]
+# Run start.sh when container launches
+CMD ["/start.sh"]
