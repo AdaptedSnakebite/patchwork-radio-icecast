@@ -1,18 +1,18 @@
-FROM alpine:latest
+FROM ubuntu:22.04
 
-RUN apk update && apk add --no-cache icecast
+RUN apt-get update && apt-get install -y icecast2
 
-# Create directories with correct permissions
-RUN mkdir -p /var/log/icecast /usr/share/icecast/web /usr/share/icecast/admin
-RUN touch /var/log/icecast/access.log /var/log/icecast/error.log
-RUN chmod -R 777 /var/log/icecast
+# Create icecast user and group
+RUN groupadd -r icecast && useradd -r -g icecast icecast
 
+# Copy the icecast config
 COPY icecast.xml /etc/icecast.xml
-COPY mime.types /etc/mime.types
-COPY start.sh /start.sh
 
-RUN chmod +x /start.sh
+# Create logs dir and give ownership to icecast user
+RUN mkdir -p /icecast/logs && chown -R icecast:icecast /icecast
+
+USER icecast
 
 EXPOSE 8080
 
-CMD ["/start.sh"]
+CMD ["icecast2", "-c", "/etc/icecast.xml"]
