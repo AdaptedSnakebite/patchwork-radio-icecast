@@ -1,4 +1,6 @@
 <icecast>
+  <changeowner>icecast</changeowner>
+
   <location>Internet</location>
   <admin>patchwork@radio.fm</admin>
 
@@ -29,7 +31,7 @@
   <fileserve>1</fileserve>
 
   <paths>
-    <basedir>/icecast</basedir>
+    <basedir>/usr/share/icecast</basedir>
     <logdir>/icecast/logs</logdir>
     <webroot>/usr/share/icecast/web</webroot>
     <adminroot>/usr/share/icecast/admin</adminroot>
