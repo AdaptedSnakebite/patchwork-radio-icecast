@@ -1,20 +1,12 @@
 FROM alpine:latest
+https://github.com/AdaptedSnakebite/patchwork-radio-icecast/tree/main
+RUN apk update && apk add --no-cache icecast su-exec
 
-# Install Icecast and tools
-RUN apk update && \
-    apk add icecast su-exec && \
-    mkdir -p /etc/icecast && \
-    mkdir -p /logs
-
-# Copy files
 COPY icecast.xml /etc/icecast.xml
 COPY start.sh /start.sh
 
-# Make start script executable
 RUN chmod +x /start.sh
 
-# Expose default Icecast port
-EXPOSE 8000
+EXPOSE 8080
 
-# Run it
 CMD ["/start.sh"]
