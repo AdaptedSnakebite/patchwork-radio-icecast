@@ -22,7 +22,7 @@
   <hostname>patchwork.up.railway.app</hostname>
 
   <listen-socket>
-    <port>8080</port>
+    <port>8000</port>
     <bind-address>0.0.0.0</bind-address>
   </listen-socket>
 
@@ -30,7 +30,7 @@
 
   <paths>
     <basedir>/usr/share/icecast</basedir>
-    <logdir>/var/log/icecast</logdir>
+    <logdir>/logs</logdir>
     <webroot>/usr/share/icecast/web</webroot>
     <adminroot>/usr/share/icecast/admin</adminroot>
     <alias source="/" destination="/status.xsl"/>
@@ -44,10 +44,8 @@
     <logsize>10000</logsize>
   </logging>
 
-  <!-- Add this mount section to allow streaming sources to connect -->
   <mount>
     <mount-name>/stream</mount-name>
-    <username>source</username>
-    <password>hackme</password>
+    <public>1</public>
   </mount>
 </icecast>
