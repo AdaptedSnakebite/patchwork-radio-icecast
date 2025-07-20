@@ -1,5 +1,5 @@
 FROM alpine:latest
-https://github.com/AdaptedSnakebite/patchwork-radio-icecast/tree/main
+
 RUN apk update && apk add --no-cache icecast su-exec
 
 COPY icecast.xml /etc/icecast.xml
