@@ -28,6 +28,8 @@
 
   <mount>
     <mount-name>/stream</mount-name>
+    <username>source</username>
+    <password>hackme</password>
     <public>1</public>
   </mount>
 
