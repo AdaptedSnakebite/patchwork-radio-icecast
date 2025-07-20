@@ -1,25 +1,20 @@
 FROM alpine:latest
 
-# Install Icecast
-RUN apk update && apk add --no-cache icecast
+# Install Icecast and tools
+RUN apk update && \
+    apk add icecast su-exec && \
+    mkdir -p /etc/icecast && \
+    mkdir -p /logs
 
-# Create icecast user and group (skip error if already exists)
-RUN addgroup -S icecast || true && adduser -S -G icecast icecast || true
-
-# Copy the Icecast config file
+# Copy files
 COPY icecast.xml /etc/icecast.xml
-
-# Copy the start script
 COPY start.sh /start.sh
 
 # Make start script executable
 RUN chmod +x /start.sh
 
-# Switch to icecast user to avoid running as root
-USER icecast
+# Expose default Icecast port
+EXPOSE 8000
 
-# Expose port 8080
-EXPOSE 8080
-
-# Run start.sh when container launches
+# Run it
 CMD ["/start.sh"]
