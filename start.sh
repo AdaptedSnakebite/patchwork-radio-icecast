@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-addgroup --system icecast
-adduser --system --ingroup icecast icecast
+# Create icecast user and group
+addgroup -S icecast && adduser -S -G icecast icecast
 
+# Create logging directory and fix permissions
 mkdir -p /logs
 chown -R icecast:icecast /logs
 
-exec su -s /bin/sh icecast -c "icecast2 -c /etc/icecast.xml"
+# Start Icecast as non-root
+exec su-exec icecast icecast2 -c /etc/icecast.xml
