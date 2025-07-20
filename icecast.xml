@@ -43,9 +43,4 @@
     <loglevel>3</loglevel>
     <logsize>10000</logsize>
   </logging>
-
-  <mount>
-    <mount-name>/stream</mount-name>
-    <public>1</public>
-  </mount>
 </icecast>
